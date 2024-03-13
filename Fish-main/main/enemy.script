@@ -1,0 +1,17 @@
+function init(self)
+	go.animate(".", "position.x", go.PLAYBACK_ONCE_FORWARD, -1300, go.EASING_LINEAR, 8, 0, function()
+		go.delete()
+	end)
+	timer.delay(1, true, function()
+		factory.create("#factory")
+		sound.play("#blub")
+	end)
+end
+function on_message(self, message_id, message, sender)
+	if message_id == hash("trigger_response") and message.enter then
+		sound.play("#hit")
+		sprite.play_flipbook("#sprite", "enemy_death", function()
+			go.delete()
+		end)
+	end
+end
