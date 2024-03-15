@@ -1,6 +1,0 @@
-function init(self)
-	timer.delay(3.3, true, function()
-		factory.create("#factori")
-		sound.play("#spawn")
-	end)
-end
